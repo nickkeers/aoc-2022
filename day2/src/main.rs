@@ -97,8 +97,9 @@ impl Day for Day2 {
     }
     
     fn second_part(&mut self) -> String {
-        let scored = self.0.iter().map(|cmd| score_for_part2_strategy(cmd.opponent_move, cmd.our_move));
-        scored.collect::<Vec<i32>>().iter().sum::<i32>().to_string()
+        let scored: Vec<_> = self.0.iter().map(|cmd| score_for_part2_strategy(cmd.opponent_move, cmd.our_move)).collect::<Vec<i32>>();
+        let sum: i32 = scored.iter().sum();
+        sum.to_string()
     }
 }
 
